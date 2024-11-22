@@ -316,7 +316,7 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--build', help='build to download')
     args = parser.parse_args()
     file_loader = FileSystemLoader('templates')
-    env = Environment(loader=file_loader)
+    env = Environment(loader=file_loader, autoescape=True)
     grafana_version = None
     grafana_hash = None
     is_enterprise = False
