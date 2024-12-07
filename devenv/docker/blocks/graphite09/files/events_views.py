@@ -65,11 +65,11 @@ def get_data(request):
         response = HttpResponse(
           "%s(%s)" % (request.REQUEST.get('jsonp'),
               json.dumps(fetch(request), cls=EventEncoder)),
-          mimetype='text/javascript')
+          mimetype='text/javascript', content_type="application/json")
     else:
         response = HttpResponse(
             json.dumps(fetch(request), cls=EventEncoder),
-            mimetype="application/json")
+            mimetype="application/json", content_type="application/json")
     return response
 
 def fetch(request):
